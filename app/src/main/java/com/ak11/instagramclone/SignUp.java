@@ -1,7 +1,8 @@
-package com.ak11.instagramclone;
+    package com.ak11.instagramclone;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class SignUp extends AppCompatActivity {
 
-    private Button btn;
+    private Button btn, btnTransition;
     private EditText edtName, edtPower, edtSpeed, edtType;
     private TextView txtGetData;
     private String strcar;
@@ -32,6 +33,7 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         btn=findViewById(R.id.button);
+        btnTransition = findViewById(R.id.btnNextActivity);
         edtName=findViewById(R.id.edtName);
         edtType=findViewById(R.id.edtType);
         edtPower=findViewById(R.id.edtPower);
@@ -45,6 +47,7 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(SignUp.this,"Getting data...",Toast.LENGTH_SHORT).show();
                 ParseQuery<ParseObject> parseQuery = ParseQuery.getQuery("Car");
+                parseQuery.whereGreaterThan("car_speed",200);
                 parseQuery.findInBackground(new FindCallback<ParseObject>(){
 
                     @Override
@@ -70,6 +73,17 @@ public class SignUp extends AppCompatActivity {
                 });
             }
         });
+
+        btnTransition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this,
+                        SignUpLoginActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
     public void btnIsTapped(View v){
         ParseObject car = new ParseObject("Car");

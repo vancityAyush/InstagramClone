@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp" >
-
+    tools:context=".LoginActivity">
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="0dp"
@@ -19,28 +18,16 @@
         app:srcCompat="@drawable/instagram" />
 
     <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Please enter an Email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <EditText
         android:id="@+id/edtUsernameLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Please enter an username"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
         android:id="@+id/edtPasswordLogin"
@@ -61,10 +48,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:onClick="btnIsTapped"
-        android:text="Sign Up"
+        android:onClick="OnClick"
+        android:text="log in"
         android:textSize="30sp"
-        app:backgroundTint="#40C4FF"
+        app:backgroundTint="#536DFE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPasswordLogin" />
@@ -76,10 +63,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:onClick="btnIsTapped"
-        android:text="Log In"
+        android:onClick="OnClick"
+        android:text="Sign up"
         android:textSize="30sp"
-        app:backgroundTint="#FFAB40"
+        app:backgroundTint="#FF5252"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUp" >
+    android:onClick="rootLayoutTapped"
+    tools:context=".SignUp">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -55,13 +56,12 @@
         app:layout_constraintTop_toBottomOf="@+id/edtUsernameLogin" />
 
     <Button
-        android:id="@+id/btnLoginActivityLogin"
+        android:id="@+id/btnSignUp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:onClick="btnIsTapped"
         android:text="Sign Up"
         android:textSize="30sp"
         app:backgroundTint="#40C4FF"
@@ -70,19 +70,18 @@
         app:layout_constraintTop_toBottomOf="@+id/edtPasswordLogin" />
 
     <Button
-        android:id="@+id/btnLoginActivitySignUp"
+        android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:onClick="btnIsTapped"
         android:text="Log In"
         android:textSize="30sp"
         app:backgroundTint="#FFAB40"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginActivityLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSignUp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

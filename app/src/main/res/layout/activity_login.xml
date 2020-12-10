@@ -2,9 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LoginLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="onClick"
     tools:context=".LoginActivity">
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="0dp"
@@ -42,13 +45,13 @@
         app:layout_constraintTop_toBottomOf="@+id/edtUsernameLogin" />
 
     <Button
-        android:id="@+id/btnLoginActivityLogin"
+        android:id="@+id/btnLoginLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:onClick="OnClick"
+        android:onClick="onClick"
         android:text="log in"
         android:textSize="30sp"
         app:backgroundTint="#536DFE"
@@ -57,19 +60,19 @@
         app:layout_constraintTop_toBottomOf="@+id/edtPasswordLogin" />
 
     <Button
-        android:id="@+id/btnLoginActivitySignUp"
+        android:id="@+id/btnSignupLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:onClick="OnClick"
+        android:onClick="onClick"
         android:text="Sign up"
         android:textSize="30sp"
         app:backgroundTint="#FF5252"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLoginActivityLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

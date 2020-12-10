@@ -1,16 +1,15 @@
 package com.ak11.instagramclone;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.shashank.sony.fancytoastlib.FancyToast;
 
@@ -25,13 +24,23 @@ public class LoginActivity extends AppCompatActivity {
         setTitle("Log In");
         edtUsername = findViewById(R.id.edtUsernameLogin);
         edtPassword = findViewById(R.id.edtPasswordLogin);
+        edtPassword.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
+                    onClick(findViewById(R.id.btnSignupLogin));
+
+                }
+                return false;
+            }
+        });
         if(ParseUser.getCurrentUser()!=null)
             ParseUser.getCurrentUser().logOut();
 
     }
-    public void OnClick( View v){
+    public void onClick( View v){
         switch(v.getId()){
-            case(R.id.btnLoginActivityLogin):
+            case(R.id.btnSignupLogin):
                 ParseUser.logInInBackground(edtUsername.getText().toString(), edtPassword.getText().toString(),
                         new LogInCallback() {
                             @Override
@@ -45,9 +54,18 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         });
                 break;
-            case(R.id.btnLoginActivitySignUp):
+            case(R.id.btnLoginLogin):
                 finish();
                 break;
+            case(R.id.LoginLayout):
+                try{
+                InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),0);
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+
         }
     }
 

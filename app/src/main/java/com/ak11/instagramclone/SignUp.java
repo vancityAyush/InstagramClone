@@ -11,6 +11,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -44,7 +45,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
             });
 
             if (ParseUser.getCurrentUser() != null)
-                ParseUser.getCurrentUser().logOut();
+                transitionToSocialMediaAcitvity();
         }
 
         @Override
@@ -65,11 +66,14 @@ import com.shashank.sony.fancytoastlib.FancyToast;
                         appUser.signUpInBackground(new SignUpCallback() {
                             @Override
                             public void done(ParseException e) {
-                                if (e == null)
+                                if (e == null) {
                                     FancyToast.makeText(SignUp.this, edtUsername.getText()
                                             + " is signed up successfully", FancyToast.DEFAULT, FancyToast.SUCCESS, false).show();
+                                    transitionToSocialMediaAcitvity();
+                                }
                                 else
-                                    FancyToast.makeText(SignUp.this, e.getMessage(), FancyToast.DEFAULT, FancyToast.ERROR, false).show();
+                                    FancyToast.makeText(SignUp.this, e.getMessage(), FancyToast.DEFAULT,
+                                            FancyToast.ERROR, false).show();
                                 progressDialog.dismiss();
                             }
                         });
@@ -77,6 +81,9 @@ import com.shashank.sony.fancytoastlib.FancyToast;
                     break;
                 case (R.id.btnLogin):
                     Intent intent = new Intent(SignUp.this, LoginActivity.class);
+                    if(ParseUser.getCurrentUser()!=null) {
+                        ParseUser.logOut();
+                    }
                     startActivity(intent);
                     break;
 
@@ -90,6 +97,13 @@ import com.shashank.sony.fancytoastlib.FancyToast;
             catch (Exception e){
                 e.printStackTrace();
             }
+
+        }
+
+        private void transitionToSocialMediaAcitvity(){
+
+            Intent intent =  new Intent(SignUp.this, SocialMediaActivity.class);
+            startActivity(intent);
 
         }
     }

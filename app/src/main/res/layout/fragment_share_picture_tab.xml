@@ -8,9 +8,10 @@
 
     <ImageView
         android:id="@+id/imgShare"
-        android:layout_width="377dp"
-        android:layout_height="225dp"
+        android:layout_width="468dp"
+        android:layout_height="192dp"
         android:layout_marginTop="8dp"
+        android:foregroundGravity="center"
         android:src="@drawable/placeholder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

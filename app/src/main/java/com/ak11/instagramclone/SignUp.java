@@ -11,7 +11,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -45,7 +44,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
             });
 
             if (ParseUser.getCurrentUser() != null)
-                transitionToSocialMediaAcitvity();
+                transitionToSocialMediaActivity();
         }
 
         @Override
@@ -69,7 +68,7 @@ import com.shashank.sony.fancytoastlib.FancyToast;
                                 if (e == null) {
                                     FancyToast.makeText(SignUp.this, edtUsername.getText()
                                             + " is signed up successfully", FancyToast.DEFAULT, FancyToast.SUCCESS, false).show();
-                                    transitionToSocialMediaAcitvity();
+                                    transitionToSocialMediaActivity();
                                 }
                                 else
                                     FancyToast.makeText(SignUp.this, e.getMessage(), FancyToast.DEFAULT,
@@ -100,10 +99,11 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 
         }
 
-        private void transitionToSocialMediaAcitvity(){
+        private void transitionToSocialMediaActivity(){
 
             Intent intent =  new Intent(SignUp.this, SocialMediaActivity.class);
             startActivity(intent);
+            finish();
 
         }
     }

@@ -60,6 +60,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(ParseUser.getCurrentUser()!=null) {
                     ParseUser.logOut();
                 }
+//                Intent intent = new Intent(LoginActivity.this,SocialMediaActivity.class);
+//                startActivity(intent);
                 finish();
                 break;
             case (R.id.LoginLayout):
@@ -76,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent intent = new Intent(LoginActivity.this, SocialMediaActivity.class);
         startActivity(intent);
+        finish();
     }
 
 }

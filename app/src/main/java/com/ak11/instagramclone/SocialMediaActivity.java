@@ -74,7 +74,7 @@ public class SocialMediaActivity extends AppCompatActivity {
         }
         else if(item.getItemId() == R.id.logoutOutUserItem){
             ParseUser.getCurrentUser().logOut();
-            Intent intent = new Intent(SocialMediaActivity.this,SocialMediaActivity.class);
+            Intent intent = new Intent(SocialMediaActivity.this,LoginActivity.class);
             startActivity(intent);
             finish();
         }

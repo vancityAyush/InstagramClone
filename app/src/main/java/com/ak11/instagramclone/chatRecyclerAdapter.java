@@ -44,9 +44,6 @@ public class chatRecyclerAdapter extends RecyclerView.Adapter<ChatViewHolder>  {
     if(chats.get(position).get("from").equals(sender)){
         textView.setGravity(Gravity.RIGHT);
     }
-    else {
-        //TODO align start
-    }
 
     }
 

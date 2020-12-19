@@ -78,6 +78,10 @@ public class SocialMediaActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+        else if(item.getItemId() == R.id.infoItem){
+            FancyToast.makeText(SocialMediaActivity.this,"Made by #AK_11",
+                    FancyToast.LENGTH_SHORT,FancyToast.INFO,true).show();
+        }
 
         return super.onOptionsItemSelected(item);
     }

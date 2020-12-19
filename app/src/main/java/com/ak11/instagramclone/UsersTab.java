@@ -61,7 +61,7 @@ public class UsersTab extends Fragment implements AdapterView.OnItemClickListene
                             arrayList.add(user.getUsername());
                         }
                          listView.setAdapter(arrayAdapter);
-                         txtLoadingUsers.animate().alpha(0).setDuration(2000);
+                         txtLoadingUsers.animate().alpha(0).setDuration(1500);
                          listView.setVisibility(view.VISIBLE);
 
 
@@ -104,7 +104,18 @@ public class UsersTab extends Fragment implements AdapterView.OnItemClickListene
                                         }
                                     }
 
-                            ).show();
+                            ).addButton("Chat",
+                            R.color.pdlg_color_white,
+                            R.color.pdlg_color_blue,
+                            new PrettyDialogCallback() {
+                                @Override
+                                public void onClick() {
+                                    prettyDialog.dismiss();
+                                    Intent intent= new Intent(view.getContext(),ChatActivity.class);
+                                    intent.putExtra("username",arrayList.get(position));
+                                    startActivity(intent);
+                                }
+                            }).show();
                 }
 
             }
@@ -113,4 +124,5 @@ public class UsersTab extends Fragment implements AdapterView.OnItemClickListene
 
         return false;
     }
+
 }

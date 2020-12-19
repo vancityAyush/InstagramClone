@@ -9,5 +9,10 @@
     <item android:id="@+id/logoutOutUserItem"
         android:title="Logout"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/infoItem"
+        android:icon="@drawable/ic_info_outline_black_24dp"
+        android:title="info"
+        app:showAsAction="always" />
 
 </menu>
